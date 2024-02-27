@@ -14,23 +14,18 @@ public class ChessGame {
     }
 
     public String getPlayerName() {
-    	//your code goes here
         return playerName;
     }
 
     public String getOpponentName() {
-    	//your code goes here
         return opponentName;
     }
 
     public int getNumberOfMoves() {
-    	//your code goes here
         return numberOfMoves;
     }
 
     public boolean isWin() {
-    	//your code goes here
         return isWin;
     }
 }
-

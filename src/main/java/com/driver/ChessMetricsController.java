@@ -37,18 +37,47 @@ public class ChessMetricsController {
     }
 
     private void printMenu() {
-    	//your code goes here
+        System.out.println("Choose an option:");
+        System.out.println("1. Store Chess Game Data");
+        System.out.println("2. Calculate Average Moves");
+        System.out.println("3. Calculate Win Rate");
+        System.out.println("4. Exit");
     }
 
     private void storeChessGameData(Scanner scanner) {
-    	//your code goes here
+        System.out.println("Enter Player Name:");
+        scanner.nextLine(); // Consume the newline character
+        String playerName = scanner.nextLine();
+
+        System.out.println("Enter Opponent Name:");
+        String opponentName = scanner.nextLine();
+
+        System.out.println("Enter Number of Moves:");
+        int numberOfMoves = scanner.nextInt();
+
+        System.out.println("Did " + playerName + " win? (true/false):");
+        boolean isWin = scanner.nextBoolean();
+
+        ChessGameDTO chessGameDTO = new ChessGameDTO(playerName, opponentName, numberOfMoves, isWin);
+        chessMetricsService.storeChessGameData(chessGameDTO);
+        System.out.println("Chess Game Data stored successfully.");
     }
 
     private void calculateAverageMoves(Scanner scanner) {
-    	//your code goes here
+        System.out.println("Enter Player Name:");
+        scanner.nextLine(); // Consume the newline character
+        String playerName = scanner.nextLine();
+
+        double averageMoves = chessMetricsService.calculateAverageMoves(playerName);
+        System.out.println("Average Moves for " + playerName + ": " + averageMoves);
     }
 
     private void calculateWinRate(Scanner scanner) {
-    	//your code goes here
+        System.out.println("Enter Player Name:");
+        scanner.nextLine(); // Consume the newline character
+        String playerName = scanner.nextLine();
+
+        double winRate = chessMetricsService.calculateWinRate(playerName);
+        System.out.println("Win Rate for " + playerName + ": " + winRate + "%");
     }
 }
